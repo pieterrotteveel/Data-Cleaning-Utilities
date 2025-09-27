@@ -1,21 +1,10 @@
-def standardize_colnames(
+def standardize_column_names(
     df: pd.DataFrame,
     case: str = "snake",
     strip: bool = True,
     dedup: bool = True,
     extra_transforms: Optional[Mapping[str, str]] = None,
 ) -> pd.DataFrame:
-    """
-    Make column names consistent.
-    - case: 'snake' | 'lower' | 'upper' | 'title' | 'none'
-    - strip: trim whitespace
-    - dedup: ensure unique names by appending _1, _2, ...
-    - extra_transforms: pattern replacements applied BEFORE casing
-    Returns df with updated columns (in-place friendly).
-
-    Example:
-        df = standardize_colnames(df)
-    """
     cols = list(df.columns)
 
     def _apply_extra(s: str) -> str:
@@ -25,10 +14,9 @@ def standardize_colnames(
         return s
 
     def _to_snake(s: str) -> str:
-        # Replace non-letters with underscores, collapse, lowercase
         s = re.sub(r"[^0-9A-Za-z]+", "_", s)
-        s = re.sub(r"([a-z0-9])([A-Z])", r"\1_\2", s)  # camelCase -> camel_Case
-        s = re.sub(r"__+", "_", s)  # collapse repeats
+        s = re.sub(r"([a-z0-9])([A-Z])", r"\1_\2", s)  
+        s = re.sub(r"__+", "_", s)
         s = s.strip("_").lower()
         return s
 
