@@ -1,4 +1,4 @@
-def to_wide(
+def to_wide_utl(
     df: pd.DataFrame,
     index: Sequence[str],
     names_from: str,
