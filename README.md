@@ -29,7 +29,7 @@ This document describes each function, what it does, and its inputs.
 
 ---
 
-## 4. `to_long(df, id_vars, value_vars)`
+## 4. `to_long_utl(df, id_vars, value_vars)`
 **Description:** Converts wide → long format (wrapper over `pd.melt`).  
 - **df** → DataFrame  
 - **id_vars** → columns to keep as identifiers  
@@ -37,7 +37,7 @@ This document describes each function, what it does, and its inputs.
 
 ---
 
-## 5. `to_wide(df, index, names_from, values_from)`
+## 5. `to_wide_utl(df, index, names_from, values_from)`
 **Description:** Converts long → wide format (wrapper over `pivot_table`).  
 - **df** → DataFrame  
 - **index** → columns to use as row index  
